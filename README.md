@@ -254,3 +254,61 @@ MIT License
 ## サポート
 
 問い合わせ: support@student-coupon-platform.com
+
+
+このプロジェクトは学割クーポン・プラットフォームのAPIです。以下が設定手順と使い方です：
+
+  初期設定
+
+  1. 依存関係のインストール
+
+  npm install
+
+  2. 必要なサービスのセットアップ
+
+  - Airtable: データベースとして使用（Companies, Coupons, ApiKeys, RedeemLogsテーブルが必要）
+  - Stripe: 課金システム
+  - Vercel KV: キャッシュ
+  - NextAuth.js: Magic Link認証
+
+  3. 環境変数の設定
+
+  AIRTABLE_TOKEN=your_airtable_personal_access_token
+  AIRTABLE_BASE_ID=your_airtable_base_id
+  STRIPE_SECRET_KEY=sk_test_...
+  STRIPE_WEBHOOK_SECRET=whsec_...
+  NEXTAUTH_SECRET=your_random_secret_string
+  NEXTAUTH_URL=https://your-domain.vercel.app
+  KV_URL=redis://...
+  KV_REST_API_URL=https://...
+  KV_REST_API_TOKEN=...
+  KV_REST_API_READ_ONLY_TOKEN=...
+
+  開発・テスト用コマンド
+
+  # 開発サーバー起動
+  npm run dev
+
+  # ビルド
+  npm run build
+
+  # テスト実行
+  npm test
+
+  # E2Eテスト
+  npm run test:e2e
+
+  # リント・フォーマット
+  npm run lint
+  npm run format
+
+  # 型チェック
+  npm run type-check
+
+  デプロイ（Vercel）
+
+  vercel
+  vercel env add [環境変数]
+  vercel --prod
+
+  プロジェクトは企業向けクーポン管理と学生アプリ向けAPI提供の両方に対応しています。
